@@ -34,11 +34,9 @@ class Birthday:
     # User-facing properties:
     #   name: string
 
-    def __init__(self, name, birthday):
-        # birthdays = {}
+    def __init__(self):
+        # all_birthdays = {}
         # Parameters:
-        #   name: string
-        #   birthday: string
         # Side effects:
         #   Sets the name and birthday property 
         pass # No code here yet
@@ -53,10 +51,22 @@ class Birthday:
         #   Adds birthday record to self.birthdays
         pass # No code here yet
 
-    def update_record(self, name, birthday):
+    def get_record(self, name):
         # Parameters:
         #   name: string representing friend's name
-        #   birthday: string representing friend's birthday
+        # Returns:
+        #   string: birthday corresponding to friend
+        # Side-effects
+        pass # No code here yet
+
+    def get_all_records(self):
+        # Returns:
+        #   dictionary: self.birthdays
+
+    def update_record(self, name, updated_birthday):
+        # Parameters:
+        #   name: string representing friend's name
+        #   updated_birthday: string representing friend's birthday
         # Returns:
         #   None
         # Side-effects:
@@ -68,10 +78,28 @@ class Birthday:
         #   old_name: string representing friend's old name
         #   new_name: string representing 
         # Returns:
-        #   Nothing
+        #   True or False if new name exists 
         # Side-effects
-        #   Saves the task to the self object
+        #   update friend's name in the dictionary
         pass # No code here yet
+
+    def birthday_reminder(self):
+        # Parameters:
+        # Returns:
+        #   A list of friends' names whose birthdays are in less than 7 days
+        #   else "No birthdays coming up"
+        # Side-effects
+        pass # No code here yet
+
+    def calculate_age(self, names, today):
+        # Parameters:
+        #   name: list representing friend's name
+        #   today: datetime object representing today's date
+        # Returns:
+        #   dictionary: name of friend and corresponding age
+        # Side-effects
+        pass # No code here yet
+
 
 ```
 
@@ -80,30 +108,59 @@ class Birthday:
 _Make a list of examples of how the class will behave in different situations._
 
 ``` python
-# EXAMPLE
 
 """
-Given a name and a task
-#remind reminds the user to do the task
+Given empty name and empty birthday
+birthdays list is initialised 
 """
-reminder = Reminder("Kay")
-reminder.remind_me_to("Walk the dog")
-reminder.remind() # => "Walk the dog, Kay!"
+birthday = Birthday(self)
+assert birthday.birthdays == {}
 
 """
-Given a name and no task
-#remind raises an exception
+Given a name and a birthday
+#add_record adds friends name and birthday to birthdays dictionary
 """
-reminder = Reminder("Kay")
-reminder.remind() # raises an error with the message "No task set."
+birthday = Birthday(self)
+birthday.add_record("person1", "01-01-2000")
+assert birthday.get_record("Person1") == "01-01-2000"
 
 """
-Given a name and an empty task
-#remind still reminds the user to do the task, even though it looks odd
+Given a name and updated birthday
+#update_record updates birthdays dictionary with friend's name and new birthday
 """
-reminder = Reminder("Kay")
-reminder.remind_me_to("")
-reminder.remind() # => ", Kay!"
+birthday = Birthday(self)
+birthday.add_record("Person1", "01-01-2000")
+birthday.update_birthday("Person1", "01-02-2000")
+assert birthday.get_record("Person1") == "01-02-2000"
+
+"""
+Given old name and new name
+#edit_name changes friend's name to new_name and updates dictionary
+"""
+birthday = Birthday(self)
+birthday.add_record("Person1", "01-01-2000")
+birthday.edit_name("Person1", "New Person")
+assert "Person1" not in self.birthdays
+assert "New Person" in self.birthdays
+
+"""
+#birthday_reminder returns list of friends birthdays that are in 7 days or less
+"""
+birthday = Birthday()
+birthday.add_record("Person1", "01-01-2000")
+birthday.add_record("Person2", "02-02-1990")
+assert birthday.birthday_reminder() == ["Person1", "Person2"]
+
+"""
+Given a list of friends names and today's date
+Returns a new dictionary of friends names and their ages
+"""
+birthday = Birthday()
+birthday.add_record("Person1", "11-11-2000") 
+birthday.add_record("Person2", "21-10-2025") 
+
+assert birthday.calculate_ages("Person1", datetime.today()) == 24
+assert birthday.calculate_ages("Person1", datetime.today()) == 0
 ```
 
 _Encode each example as a test. You can add to the above list as you go._
