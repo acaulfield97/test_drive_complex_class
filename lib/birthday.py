@@ -34,6 +34,20 @@ class Birthday:
                 reminders.append(name)
 
         return reminders
+    
+    def calculate_age(self, name):
+        today = datetime.today()
+        age = 0
+        birthday_str = self.birthdays.get(name)
+
+        birthday = datetime.strptime(birthday_str, "%d-%m-%Y")
+        age = today.year - birthday.year
+
+        if (birthday.month, birthday.day) > (today.month, today.day):
+            age -= 1
+            
+        return age
+
 
 
 

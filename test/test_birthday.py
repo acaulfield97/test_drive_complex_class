@@ -1,3 +1,4 @@
+from datetime import datetime
 from lib.birthday import Birthday
 import pytest
 
@@ -49,13 +50,14 @@ def test_returns_list_of_birthdays_in_less_than_seven_days():
     birthday.add_record("Person4", "26-10-1990")
     assert birthday.birthday_reminder() == ["Person3", "Person4"]
 
-# """
-# Given a list of friends names and today's date
-# Returns a new dictionary of friends names and their ages
-# """
-# birthday = Birthday()
-# birthday.add_record("Person1", "11-11-2000") 
-# birthday.add_record("Person2", "21-10-2025") 
+"""
+Given a list of friends names and today's date
+Returns a new dictionary of friends names and their ages
+"""
+def test_given_friends_name_and_todays_date_calculate_age():
+    birthday = Birthday()
+    birthday.add_record("Person1", "11-11-2000") 
+    birthday.add_record("Person2", "21-10-2025") 
 
-# assert birthday.calculate_ages("Person1", datetime.today()) == 24
-# assert birthday.calculate_ages("Person1", datetime.today()) == 0
+    assert birthday.calculate_age("Person1") == 24
+    assert birthday.calculate_age("Person2") == 0
