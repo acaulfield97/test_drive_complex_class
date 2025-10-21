@@ -35,45 +35,44 @@ class Birthday:
     #   name: string
 
     def __init__(self, name, birthday):
+        # birthdays = {}
         # Parameters:
         #   name: string
+        #   birthday: string
         # Side effects:
-        #   Sets the name property of the self object
+        #   Sets the name and birthday property 
         pass # No code here yet
 
-    def remind_me_to(self, task):
+    def add_record(self, name, birthday):
         # Parameters:
-        #   task: string representing a single task
+        #   name: string representing friend's name
+        #   birthday: string representing friend's birthday
         # Returns:
         #   Nothing
         # Side-effects
-        #   Saves the task to the self object
+        #   Adds birthday record to self.birthdays
         pass # No code here yet
 
-    def remind(self):
+    def update_record(self, name, birthday):
+        # Parameters:
+        #   name: string representing friend's name
+        #   birthday: string representing friend's birthday
         # Returns:
-        #   A string reminding the user to do the task
+        #   None
         # Side-effects:
-        #   Throws an exception if no task is set
+        #   Updates record in self.birthdays
         pass # No code here yet
 
-    def remind_me_to(self, task):
+    def edit_name(self, old_name, new_name):
         # Parameters:
-        #   task: string representing a single task
+        #   old_name: string representing friend's old name
+        #   new_name: string representing 
         # Returns:
         #   Nothing
         # Side-effects
         #   Saves the task to the self object
         pass # No code here yet
 
-    def remind_me_to(self, task):
-        # Parameters:
-        #   task: string representing a single task
-        # Returns:
-        #   Nothing
-        # Side-effects
-        #   Saves the task to the self object
-        pass # No code here yet
 ```
 
 ## 3. Create Examples as Tests
